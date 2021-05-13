@@ -1,4 +1,4 @@
-gap-intelligence# gap-intelligence
+# gap-intelligence
 
 1. Clone the repo
 
