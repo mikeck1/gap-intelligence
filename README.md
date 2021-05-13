@@ -4,7 +4,7 @@
 
 
 ```
-git clone https://github.com/olinations/crud-starter-api.git
+git clone https://github.com/mikeck1/gap-intelligence.git
 ```
 2. Start Postgres
 ```
