@@ -64,9 +64,9 @@ var db = require('knex')({
   client: 'pg',
   connection: {
     host: 'localhost',
-    user: '',
+    user: 'postgres',
     password: '',
-    database: 'crud-starter-api'
+    database: 'gap-intelligence'
   }
 });
 
