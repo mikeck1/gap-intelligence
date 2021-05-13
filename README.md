@@ -15,8 +15,10 @@ createdb crud-starter-api
 ```
 cd api
 gem install bundler
-rake db:migrate
-rake db:create
+# rake db:migrate
+# rake db:create
+bin/rails db:environment:set RAILS_ENV=development
+rake db:schema:load
 
 psql # confirm it worked
 \dt  #should see the table we created
