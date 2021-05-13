@@ -14,6 +14,7 @@ createdb crud-starter-api
 3. Set up the back end
 ```
 cd api
+gem install bundler
 rake db:migrate
 rake db:create
 
