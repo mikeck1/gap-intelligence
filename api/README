@@ -1,0 +1,6 @@
+
+
+#### How to load Schema
+```bash
+bundle exec rake db:schema:load
+```
