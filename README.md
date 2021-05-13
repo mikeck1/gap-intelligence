@@ -14,15 +14,12 @@ createdb gap-intelligence
 3. Set up the back end
 ```
 cd api
-gem install bundler
+bundle install
 # rake db:migrate
 # rake db:create
 bin/rails db:environment:set RAILS_ENV=development
 rake db:schema:load
 
-psql # confirm it worked
-\dt  #should see the table we created
-\q
 rails server # run the server
 ```
 4. CD into the News Crawler and Install dependencies
@@ -41,3 +38,4 @@ npm install
 npm start
 cd ..
 ```
+Refresh your browser if you don't have articles in the table. News articles will automatically populate while your browser is open.
