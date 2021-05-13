@@ -1,4 +1,4 @@
-# gap-intelligence
+gap-intelligence# gap-intelligence
 
 1. Clone the repo
 
@@ -9,7 +9,7 @@ git clone https://github.com/mikeck1/gap-intelligence.git
 2. Start Postgres
 ```
 brew services start postgresql
-createdb crud-starter-api
+createdb gap-intelligence
 ```
 3. Set up the back end
 ```
