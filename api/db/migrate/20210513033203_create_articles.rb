@@ -7,7 +7,7 @@ class CreateArticles < ActiveRecord::Migration[6.1]
       t.string :link
       t.string :date
       t.timestamps
-      :title, unique: true
+      add_index :models, [:name, :year, :trim], unique: true, name: 'index_unique_models' 
     end
   end
 end
