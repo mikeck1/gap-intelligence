@@ -27,7 +27,6 @@ rails server # run the server
 cd crud-starter-api 
 npm install
 npm start
-cd ..
 ```
 
 5. Set up the front end
@@ -36,6 +35,5 @@ cd ..
 cd crud-starter-frontend
 npm install
 npm start
-cd ..
 ```
 Refresh your browser if you don't have articles in the table. News articles will automatically populate while your browser is open.
