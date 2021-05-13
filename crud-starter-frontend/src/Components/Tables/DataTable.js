@@ -8,7 +8,6 @@ class DataTable extends Component {
     let confirmDelete = window.confirm('Delete item forever?')
     if (confirmDelete) {
       fetch('http://localhost:3001/crud', {
-        mode: 'no-cors',
         method: 'delete',
         headers: {
           'Content-Type': 'application/json'
@@ -31,19 +30,9 @@ class DataTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr key={item.id}>
-          <th scope="row">{item.id}</th>
-          <td>{item.first}</td>
-          <td>{item.last}</td>
-          <td>{item.email}</td>
-          <td>{item.phone}</td>
-          <td>{item.location}</td>
-          <td>{item.hobby}</td>
-          <td>
-            <div style={{ width: "110px" }}>
-              <ModalForm buttonLabel="Edit" item={item} updateState={this.props.updateState} />
-              {' '}
-              <Button color="danger" onClick={() => this.deleteItem(item.id)}>Del</Button>
-            </div>
+          <td><span class="badge bg-light">{item.newsorg}</span>  <a href={item.link}>{item.title}</a>
+            <br></br>
+            {item.date}
           </td>
         </tr>
       )
@@ -53,14 +42,7 @@ class DataTable extends Component {
       <Table responsive hover>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>First</th>
-            <th>Last</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Location</th>
-            <th>Hobby</th>
-            <th>Actions</th>
+            <th>Title</th>
           </tr>
         </thead>
         <tbody>

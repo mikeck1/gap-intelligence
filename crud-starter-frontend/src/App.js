@@ -10,11 +10,19 @@ class App extends Component {
   }
 
   getItems() {
-    fetch('http://localhost:3001/crud')
+    fetch('http://localhost:3003/articles')
       .then(response => response.json())
       .then(items => this.setState({ items }))
+      .then(items => console.log(items))
       .catch(err => console.log(err))
   }
+
+  updateItems() {
+    fetch('http://localhost:3001/update')
+      .then(response => response.json())
+      .catch(err => console.log(err))
+  }
+
 
   addItemToState = (item) => {
     this.setState(prevState => ({
@@ -40,8 +48,13 @@ class App extends Component {
     this.setState({ items: updatedItems })
   }
 
+  componentWillMount() {
+    this.updateItems()
+  }
+
   componentDidMount() {
     this.getItems()
+    setInterval(() => { this.getItems(); console.log("updated!") }, 60000);
   }
 
   render() {
@@ -49,7 +62,7 @@ class App extends Component {
       <Container className="App">
         <Row>
           <Col>
-            <h1 style={{ margin: "20px 0" }}>CRUD Database</h1>
+            <h1 style={{ margin: "20px 0" }}>Headlines</h1>
           </Col>
         </Row>
         <Row>
