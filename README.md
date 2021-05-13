@@ -10,6 +10,7 @@ git clone https://github.com/mikeck1/gap-intelligence.git
 ```
 brew services start postgresql
 createdb gap-intelligence
+# createdb -U postgres gap-intelligence
 ```
 3. Set up the back end
 ```
