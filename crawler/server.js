@@ -106,7 +106,7 @@ var done = false
 
 setTimeout(function () {
   done = true
-}, 1000000)
+}, 2147483647)
 
 while (!done) {
   sleep(2 * 60 * 1000)
