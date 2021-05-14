@@ -1,5 +1,11 @@
 # gap-intelligence
 
+## Tested with:
+Rails 6.1.3.2
+Ruby 2.6.3
+psql (PostgreSQL) 13.2
+React 16.8.5
+
 1. Clone the repo
 
 
