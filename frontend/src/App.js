@@ -27,7 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     this.getItems()                                                         // Update immediately
-    setInterval(() => { this.getItems(); console.log("updated!") }, 60000); // Update after one minute, and every minute after
+    setInterval(() => { this.getItems(); }, 60000);     // Update after one minute, and every minute after
   }
 
   render() {

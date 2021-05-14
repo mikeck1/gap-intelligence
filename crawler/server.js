@@ -20,7 +20,7 @@ var parseString = require('xml2js').parseString;
 
 const rp = require('request-promise');
 
-const update = (res) => {
+const update = () => {
   newsOrgs.forEach(el => {
     let newsOrg = el['name'];
     let url = el['link']
@@ -44,8 +44,12 @@ const update = (res) => {
       });
   });
 
-  res.status(200).json({ dbError: 'Updated!' })
+
 }
+
+
+
+
 
 // db Connection w/ localhost
 var db = require('knex')({
@@ -88,10 +92,26 @@ app.use(function (req, res, next) {
 
 // App Routes - Auth
 app.get('/', (req, res) => res.send('hello world'))
-app.get('/update', (req, res) => update(res))
+app.get('/update', (req, _) => update())
 app.get('/news', (req, res) => main.getNewsData(req, res, db))
 
 // App Server Connection
 app.listen(process.env.PORT || 3001, () => {
   console.log(`app is running on port ${process.env.PORT || 3001}`)
 })
+
+
+var sleep = require('system-sleep')
+var done = false
+
+setTimeout(function () {
+  done = true
+}, 1000000)
+
+while (!done) {
+  sleep(2 * 60 * 1000)
+  update()
+  console.log('sleeping')
+}
+
+console.log('finally, the done value changed!')
