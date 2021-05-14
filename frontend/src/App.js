@@ -2,21 +2,20 @@ import React, { Component } from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import DataTable from './Components/Tables/DataTable'
 import { CSVLink } from "react-csv"
-
 class App extends Component {
   state = {
     items: []
   }
 
   getItems() {
-    fetch('http://localhost:3003/articles')                                // call ruby api
+    fetch('http://localhost:3003/articles')           // call ruby api
       .then(response => response.json())
       .then(items => this.setState({ items }))
       .catch(err => console.log(err))
   }
 
   updateItems() {
-    fetch('http://localhost:3001/update')                                  // call web crawler
+    fetch('http://localhost:3001/update')             // call web crawler
       .then(response => response.json())
       .catch(err => console.log(err))
   }
@@ -26,8 +25,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getItems()                                                         // Update immediately
-    setInterval(() => { this.getItems(); }, 60000);     // Update after one minute, and every minute after
+    this.getItems()                                   // Update immediately
+    setInterval(() => { this.getItems(); }, 60000);   // Update after one minute, and every minute after
   }
 
   render() {

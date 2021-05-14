@@ -1,6 +1,4 @@
 const express = require('express')
-// use process.env variables to keep private variables,
-// be sure to ignore the .env file in github
 require('dotenv').config()
 
 // Express Middleware
@@ -43,13 +41,7 @@ const update = () => {
         console.log(err);
       });
   });
-
-
 }
-
-
-
-
 
 // db Connection w/ localhost
 var db = require('knex')({
@@ -73,11 +65,8 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const whitelist = ['http://localhost:3000']
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
+    if (whitelist.indexOf(origin) !== -1 || !origin) callback(null, true)
+    else callback(new Error('Not allowed by CORS'))
   }
 }
 app.use(helmet())
@@ -101,17 +90,10 @@ app.listen(process.env.PORT || 3001, () => {
 })
 
 
+/* UPDATE SERVER EVERY TWO MINUTES WITH MOST RECENT HEADLINES */
+update() // Update when server starts
 var sleep = require('system-sleep')
-var done = false
-
-setTimeout(function () {
-  done = true
-}, 2147483647)
-
-while (!done) {
+while (true) {
   sleep(2 * 60 * 1000)
   update()
-  console.log('sleeping')
 }
-
-console.log('finally, the done value changed!')
