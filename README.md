@@ -1,5 +1,7 @@
 # gap-intelligence
 
+!(IMG)[https://i.imgur.com/9br3Nmn.png]
+
 ## Tested with:
 - Rails 6.1.3.2
 - Ruby 2.6.3
