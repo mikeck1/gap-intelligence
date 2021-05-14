@@ -4,12 +4,24 @@ rvm:
 
 env:
   - DB=postgresql
+services:
+  - postgresql
 before_install:
   - sudo apt-get update
   - sudo apt-get install -y libtag1-dev
 before_script:
-  - createdb gap-intelligence
-  - psql -c 'create database gap-intelligence;' -U postgres
+  - psql -c 'create database travis_ci_test;' -U postgres
   - bundle install
+  - cd api
   - rake db:schema:load
   - bundle exec rake test 
+addons:
+  postgresql: "11"
+  apt:
+    packages:
+    - postgresql-11
+    - postgresql-client-11
+env:
+  global:
+  - PGPORT=5433
+  - PGUSER=travis
