@@ -1,5 +1,15 @@
 # gap-intelligence
 
+![IMG](https://i.imgur.com/9br3Nmn.png)
+
+## Tested with:
+- Rails 6.1.3.2
+- Ruby 2.6.3
+- psql (PostgreSQL) 13.2
+- React 16.8.5
+
+## Set up
+
 1. Clone the repo
 
 
