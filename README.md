@@ -6,6 +6,8 @@
 - psql (PostgreSQL) 13.2
 - React 16.8.5
 
+## Set up
+
 1. Clone the repo
 
 
