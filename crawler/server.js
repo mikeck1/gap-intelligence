@@ -9,15 +9,6 @@ const bodyParser = require('body-parser') // turns response into usable format
 const cors = require('cors')  // allows/disallows cross-site communication
 const morgan = require('morgan') // logs requests
 
-// db Connection w/ Heroku
-// const db = require('knex')({
-//   client: 'pg',
-//   connection: {
-//     connectionString: process.env.DATABASE_URL,
-//     ssl: true,
-//   }
-// });
-
 const npr = { 'name': 'NPR', 'link': 'https://feeds.npr.org/1001/rss.xml' };
 const bbc = { 'name': 'BBC', 'link': 'http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml' };
 const nyt = { 'name': 'NYT', 'link': 'https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml' };
@@ -27,10 +18,7 @@ const newsOrgs = [npr, bbc, nyt, cnn, usa];
 
 var parseString = require('xml2js').parseString;
 
-
 const rp = require('request-promise');
-
-
 
 const update = (res) => {
   newsOrgs.forEach(el => {
@@ -102,10 +90,6 @@ app.use(function (req, res, next) {
 app.get('/', (req, res) => res.send('hello world'))
 app.get('/update', (req, res) => update(res))
 app.get('/news', (req, res) => main.getNewsData(req, res, db))
-app.get('/crud', (req, res) => main.getTableData(req, res, db))
-app.post('/crud', (req, res) => main.postTableData(req, res, db))
-app.put('/crud', (req, res) => main.putTableData(req, res, db))
-app.delete('/crud', (req, res) => main.deleteTableData(req, res, db))
 
 // App Server Connection
 app.listen(process.env.PORT || 3001, () => {
