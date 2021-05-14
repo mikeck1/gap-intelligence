@@ -47,4 +47,9 @@ cd crud-starter-frontend
 npm install
 npm start
 ```
+
+## Tests
+```
+bundle exec rake test 
+```
 Refresh your browser if you don't have articles in the table. News articles will automatically populate while your browser is open.
