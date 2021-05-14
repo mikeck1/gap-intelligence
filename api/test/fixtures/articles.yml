@@ -7,9 +7,3 @@ one:
   link: MyString
   date: MyString
 
-two:
-  title: MyString
-  newsorg: MyString
-  pubtime: MyString
-  link: MyString
-  date: MyString
