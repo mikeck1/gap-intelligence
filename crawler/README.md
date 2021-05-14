@@ -2,10 +2,6 @@
 
 Node, Express & Postgres.
 
-Serves four requests (get, post, put, delete) from one page with a separate function for each.
-
-All code can be edited and replaced to fit the needs of the project being built.
-
 **Dependencies**
 
 We use **express** to serve the API, **body-parser** to parse responses, **postgres** for the database, **knex** as the query engine, **dotenv** to protect environment variables, **helmut** to add proper headers, **cors** to prevent/allow XSS, **morgan** as our logger, and **nodemon** as a dev dependency to watch for changes.
